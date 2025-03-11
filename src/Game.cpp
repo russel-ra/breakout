@@ -216,7 +216,6 @@ void Game::ProcessInput(float dt)
     if (m_State == GAME_ACTIVE)
     {
         float velocity = PLAYER_VELOCITY * dt;
-        // move playerboard
         if (m_Keys[GLFW_KEY_A] || m_Keys[GLFW_KEY_LEFT])
         {
             if (Player->Position.x >= 0.0f)
@@ -242,6 +241,11 @@ void Game::ProcessInput(float dt)
         if (m_Keys[GLFW_KEY_SPACE])
         {
             BallObject->Stuck = false;
+        }
+        if (m_Keys[GLFW_KEY_R])
+        {
+            ResetLevel();
+            ResetPlayer();
         }
     }
 }
